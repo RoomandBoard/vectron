@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+  body { margin: 0; padding: 0; }
+  </style>
+  <title>jQuery Vectron Basic Example</title>
+  <script src="../lib/jquery-1.7.min.js"></script>
+  <script src="../lib/raphael-2.0.min.js"></script>
+  <script src="../lib/raphael.shapes-0.0.2.js"></script>
+  <script src="../lib/raphael-svg-import-0.0.4.js"></script>
+  <script src="../jquery.vectron.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('[data-svg]').vectron();
+    });
+  </script>
+</head>
+<body>
+  <div style="width:40px;height:40px;" data-svg="../assets/SVG2/10002644_metro_corner.svg"></div>
+  <div style="width:612px;height:792px;" data-svg="../assets/SVG/10002642_metro_leftarm_angled_chaise.svg"></div>
+</body>
+</html>
