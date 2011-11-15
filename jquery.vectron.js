@@ -6,23 +6,39 @@
  */
 
 (function($){
+	var Vectron = function(src, paper){
+		this.src = src;
+		this.paper = paper;
+		this.svgset = paper.set();
+		return this;
+	}
+	
+	Vectron.prototype.import = function(){
+		var self = this,
+			$ajax = $.ajax({ url: self.src, type: "GET", dataType: "text" });
+			
+		$ajax.success(function(resp){
+			if (!resp) return;
+			var svgText = resp.slice(resp.indexOf('<svg'));
+			if (svgText) {
+				self.paper.importSVG(svgText, self.svgset);
+			}
+		});
+		return this;
+	}
+	
+	$.vectron = { instances: [] };
+	
 	$.fn.vectron = function(){
 		return this.each(function(){
 			var canvas = this;
 				w = $(this).width(), 
 				h = $(this).height(),
 				src = $(this).attr('data-svg'),
-				paper = Raphael(canvas, w, h),
+				paper = Raphael(canvas, w, h);
 			
-			$.ajax({ url: src, type: "GET", dataType: "text" })
-				.success(function(resp){
-				    if (!resp) return;
-					var svgText = resp.slice(resp.indexOf('<svg'));
-					if (svgText) {
-				   		paper.importSVG(svgText);
-				    	// var set = paper.set(); paper.importSVG(svgText, set);
-				    }
-				});
+			$.vectron.instances[$.vectron.instances.length] = new Vectron(src, paper).import();
 		});
 	}
+	
 })(jQuery);
