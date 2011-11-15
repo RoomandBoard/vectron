@@ -6,14 +6,14 @@
  */
 
 (function($){
-	var Vectron = function(src, paper){
+	function Vectron(src, paper){
 		this.src = src;
 		this.paper = paper;
 		this.svgset = paper.set();
 		return this;
 	}
 	
-	Vectron.prototype.import = function(){
+	Vectron.prototype.importSVG = function(){
 		var self = this,
 			$ajax = $.ajax({ url: self.src, type: "GET", dataType: "text" });
 			
@@ -37,7 +37,7 @@
 				src = $(this).attr('data-svg'),
 				paper = Raphael(canvas, w, h);
 			
-			$.vectron.instances[$.vectron.instances.length] = new Vectron(src, paper).import();
+			$.vectron.instances[$.vectron.instances.length] = new Vectron(src, paper).importSVG();
 		});
 	}
 	
