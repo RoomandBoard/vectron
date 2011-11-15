@@ -36,9 +36,8 @@
 				h = $(this).height(),
 				src = $(this).attr('data-svg'),
 				paper = Raphael(canvas, w, h);
-			
+
 			$.vectron.instances[$.vectron.instances.length] = new Vectron(src, paper).importSVG();
 		});
 	}
-	
 })(jQuery);
