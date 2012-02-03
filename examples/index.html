@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery Vectron Basic Example</title>
+	<script src="../lib/jquery-1.7.min.js"></script>
+	<script src="../lib/raphael-2.0.min.js"></script>
+	<script src="../lib/elemental.min.js"></script>
+	<script src="../lib/rappar.js"></script>
+	<script src="../jquery.vectron.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.svg').vectron();
+			$('#bigzebra').vectron({ scale: 2 });
+		});
+	</script>
+	<style>
+		body { margin: 0; padding: 0; }
+		.svg { margin: 10px; float: left; }
+	</style>
+</head>
+<body>
+	<div class="svg" data-svg="../assets/hippo.svg"></div>
+	<div class="svg" data-svg="../assets/zebra.svg"></div>
+	<div id="bigzebra" data-svg="../assets/zebra.svg"></div>
+	<!--
+		not working correctly for some reason
+		<div class="svg" data-svg="../assets/leapord.svg"></div>
+		<div class="svg" data-svg="../assets/ostrich.svg"></div> 
+	-->
+</body>
+</html>
