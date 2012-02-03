@@ -2,9 +2,7 @@
 
 jQuery plugin to load external SVG files into Raphael JS through declarative markup.
 
-## Web Page with Live Demos ##
-
-[Vectron Homepage](http://roomandboard.github.com/vectron/)
+[Vectron Website](http://roomandboard.github.com/vectron/)
 
 ## Code Example
 
