@@ -1,0 +1,22 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" 
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+ xmlns:xlink="http://www.w3.org/1999/xlink" 
+ width='300px' height='300px'>
+
+<title>Small SVG example</title>
+
+<circle cx='120' cy='150' r='60' style='fill: gold;'>
+ <animate attributeName='r' from='2' to='80' begin='0' 
+ dur='3' repeatCount='indefinite' /></circle>
+
+<polyline points='120 30, 25 150, 290 150' 
+ stroke-width='4' stroke='brown' style='fill: none;' />
+
+<polygon points='210 100, 210 200, 270 150' 
+ style='fill: lawngreen;' /> 
+   
+<text x='60' y='250' fill='blue'>Hello, World!</text>
+
+</svg>
