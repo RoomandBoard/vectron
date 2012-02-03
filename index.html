@@ -8,9 +8,7 @@
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #5b935f;
       font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
     }
     #container {
       margin: 0 auto;
@@ -27,6 +25,7 @@
     pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+	.svg { margin: 10px; float: left; }
   </style>
 </head>
 
@@ -48,35 +47,76 @@
     <div class="description">
       jQuery plugin to load external SVG files into Raphael JS through declarative markup.
     </div>
+	
+	<h2>Examples</h2>
+	<p>
+		Rendering <b>assets/hippo.svg</b> and <b>assets/zebra.svg</b> through RaphaelJS<br>
+		<div class="svg" data-svg="assets/hippo.svg"></div>
+		<div class="svg" data-svg="assets/zebra.svg"></div>
+	</p>
+	<p style="clear:both;">
+		Rendering <b>assets/zebra.svg</b> through RaphaelJS and <b>scaling by 0.5</b><br>
+		<div id="smallzebra" data-svg="assets/zebra.svg"></div>
+	</p>
+	<p style="clear:both;">
+		Rendering <b>assets/zebra.svg</b> through RaphaelJS and <b>scaling by 2</b><br>
+		<div id="bigzebra" data-svg="assets/zebra.svg"></div>
+	</p>
+	
+	<h2>Code</h2>
+	<p>	HTML
+		<pre>
+	&lt;div class="svg" data-svg="path_to_file.svg">
+		</pre>
+		JavaScript
+		<pre>
+	$(document).ready(function(){
+	    $('.svg').vectron();
+	});
+		</pre>
+		Scale SVG
+		<pre>
+	$(document).ready(function(){
+	    $('.svg').vectron({ scale: 1.25 });
+	});
+		</pre>
+		Grab the RaphaelJS paper
+		<pre>
+	var paper = $(...).data('vectron').paper;
+		</pre>
+	</p>
 
-    
-
-    
-
-    
-
-    
-
-    
-      <h2>Authors</h2>
-      <p>Marc Grabanski (m@marcgrabanski.com)<br/>      </p>
-    
-
-    
-      <h2>Contact</h2>
-      <p> (webmaster@roomandboard.com)<br/>      </p>
-    
-
+	<h2>Why Vectron?</h2>
+	<p>
+		This simple jQuery plugin uses ajax to retrieve the SVG, parse with rappar.js and render the results through RaphaelJS.
+	</p>
+	<p>
+		<ul>
+			<li>RaphaelJS does to VML and SVG what jQuery did to the DOM -- it provides a clean API to work with for vector graphics.</li>
+			<li>RaphaelJS itself doesn't parse SVG, so RaphaelJS Dmitry Baranovskiy (creator of RaphaelJS) created rappar.js</li>
+			<li>rappar.js doesn't work in the browser, this does.</li>
+		</ul>
+	</p>
+	
+	<h2>Dependencies:</h2>
+	<p>
+		<a href="http://raphaeljs.com/">RaphaelJS</a><br>
+		<a href="https://github.com/DmitryBaranovskiy/elemental">elemental</a><br>
+		<a href="https://github.com/DmitryBaranovskiy/rappar">rappar</a><br>
+    </p>
     <h2>Download</h2>
     <p>
       You can download this project in either
       <a href="https://github.com/RoomandBoard/vectron/zipball/master">zip</a> or
-      <a href="https://github.com/RoomandBoard/vectron/tarball/master">tar formats.
+      <a href="https://github.com/RoomandBoard/vectron/tarball/master">tar formats.</a>
     </p>
     <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
       by running:
       <pre>$ git clone git://github.com/RoomandBoard/vectron</pre>
     </p>
+      <h2>Authors</h2>
+      <p>Marc Grabanski<br/>
+		</p>
 
     <div class="footer">
       get the source code on GitHub : <a href="https://github.com/RoomandBoard/vectron">RoomandBoard/vectron</a>
@@ -84,5 +124,17 @@
 
   </div>
 
+	<script src="lib/jquery-1.7.min.js"></script>
+	<script src="lib/raphael-2.0.min.js"></script>
+	<script src="lib/elemental.min.js"></script>
+	<script src="lib/rappar.js"></script>
+	<script src="jquery.vectron.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.svg').vectron();
+			$('#smallzebra').vectron({ scale: 0.5 });
+			$('#bigzebra').vectron({ scale: 2 });
+		});
+	</script>
 </body>
 </html>
