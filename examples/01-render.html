@@ -3,7 +3,7 @@
 <head>
   <style>
   body { margin: 0; padding: 0; }
-  .svg { margin: 10px; float: left; width: 100px; height: 100px; }
+  .svg { margin: 10px; min-width: 100px; min-height: 100px; float: left; }
   </style>
   <title>jQuery Vectron Basic Example</title>
   <script src="../lib/jquery-1.7.min.js"></script>
@@ -18,6 +18,12 @@
   </script>
 </head>
 <body>
-<div class="svg" data-svg="../assets/hippo.svg"></div>
+	<div class="svg" data-svg="../assets/hippo.svg"></div>
+	<div class="svg" data-svg="../assets/zebra.svg"></div>
+	<!--
+		not working correctly for some reason
+		<div class="svg" data-svg="../assets/leapord.svg"></div>
+		<div class="svg" data-svg="../assets/ostrich.svg"></div> 
+	-->
 </body>
 </html>
