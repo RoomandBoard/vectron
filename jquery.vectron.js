@@ -39,7 +39,16 @@
 						return this;
 					}
 					
-					promise = $.ajax({ url: data.src, type: "GET", dataType: "text" });
+					promise = $.ajax({ 
+						url: data.src, 
+						type: "GET", 
+						dataType: "text",
+						beforeSend: function() {
+							if(typeof options.beforeSend === 'function' && options.beforeSend){
+								options.beforeSend();
+							}
+						}
+					});
 					promise.success(function(resp){
 						if (!resp) return;
 						
